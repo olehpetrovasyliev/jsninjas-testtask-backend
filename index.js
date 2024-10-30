@@ -1,1 +1,13 @@
-console.log("server running");
+const mongoose = require("mongoose");
+const app = require("./app");
+
+const { DB_HOST, PORT } = process.env;
+mongoose
+  .connect(DB_HOST)
+  .then(() => {
+    app.listen(PORT, console.log(`server running on port ${PORT}`));
+  })
+  .catch((err) => {
+    console.log(err.message);
+    process.exit(1);
+  });
