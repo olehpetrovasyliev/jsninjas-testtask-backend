@@ -44,7 +44,10 @@ const addCharacter = async (req, res) => {
     await fs.unlink(file.path);
   }
 
-  const characterData = { ...req.body, images };
+  const characterData = {
+    ...req.body,
+    images,
+  };
 
   const result = await Character.create(characterData);
   res.status(201).json(result);

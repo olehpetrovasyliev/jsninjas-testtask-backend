@@ -6,7 +6,7 @@ const addCharacterJoiSchema = Joi.object({
   origin_description: Joi.string().required(),
   superpowers: Joi.array().items(Joi.string()).required(),
   catch_phrase: Joi.string().required(),
-  images: Joi.array().items(Joi.mixed()).required(),
+  //   images: Joi.array().items(Joi.any()).required(),
 });
 
 const updateCharacterJoiSchema = Joi.object({
@@ -15,7 +15,7 @@ const updateCharacterJoiSchema = Joi.object({
   origin_description: Joi.string(),
   superpowers: Joi.array().items(Joi.string()),
   catch_phrase: Joi.string(),
-  images: Joi.array().items(Joi.mixed()),
+  //   images: Joi.array().items(Joi.any()),
 });
 
 module.exports = { addCharacterJoiSchema, updateCharacterJoiSchema };
