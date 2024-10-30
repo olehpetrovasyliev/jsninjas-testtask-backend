@@ -1,6 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
+const { CharactersRouter } = require("./routes/api");
 
 require("dotenv").config();
 
@@ -17,6 +18,8 @@ app.use(
     extended: true,
   })
 );
+
+app.use("/api/characters", CharactersRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });

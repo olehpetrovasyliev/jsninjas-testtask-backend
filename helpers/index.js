@@ -1,5 +1,5 @@
 const { HttpError } = require("./httpError");
-const requireIfNew = require("./requiredIsNew");
+const requireIfNew = require("./requiredIfNew");
 
 module.exports = {
   HttpError,
