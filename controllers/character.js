@@ -1,6 +1,6 @@
 const Character = require("../models/Character");
 const fs = require("fs/promises");
-const { HttpError } = require("../helpers");
+const { HttpError, cloudinary } = require("../helpers");
 const { ctrlWrapper } = require("../decorators");
 
 const getAllCharacters = async (req, res) => {
@@ -33,6 +33,22 @@ const getCharacterById = async (req, res) => {
 
   res.json(result);
 };
+const addCharacter = async (req, res) => {
+  const images = [];
+
+  for (const file of req.files) {
+    const { url } = await cloudinary.uploader.upload(file.path, {
+      folder: "characters",
+    });
+    images.push(url);
+    await fs.unlink(file.path);
+  }
+
+  const characterData = { ...req.body, images };
+
+  const result = await Character.create(characterData);
+  res.status(201).json(result);
+};
 
 const deleteCharacter = async (req, res) => {
   const { id } = req.params;
@@ -48,5 +64,7 @@ const deleteCharacter = async (req, res) => {
 module.exports = {
   getAllCharacters: ctrlWrapper(getAllCharacters),
   getCharacterById: ctrlWrapper(getCharacterById),
+  addCharacter: ctrlWrapper(addCharacter),
+
   deleteCharacter: ctrlWrapper(deleteCharacter),
 };
