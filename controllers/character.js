@@ -4,7 +4,7 @@ const { HttpError, cloudinary } = require("../helpers");
 const { ctrlWrapper } = require("../decorators");
 
 const getAllCharacters = async (req, res) => {
-  const { page = 1, limit = 10 } = req.params;
+  const { page = 1, limit = 5 } = req.params;
 
   const pageNum = parseInt(page);
   const limitNum = parseInt(limit);
