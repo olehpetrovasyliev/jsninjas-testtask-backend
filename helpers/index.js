@@ -1,4 +1,4 @@
-const { HttpError } = require("./httpError");
+const { HttpError } = require("./HttpError");
 const requireIfNew = require("./requiredIfNew");
 const cloudinary = require("./cloudinary");
 
