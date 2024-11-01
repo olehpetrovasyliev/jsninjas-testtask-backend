@@ -4,14 +4,14 @@ const { HttpError, cloudinary } = require("../helpers");
 const { ctrlWrapper } = require("../decorators");
 
 const getAllCharacters = async (req, res) => {
-  const { page = 1, limit = 5 } = req.params;
+  const { page = 1, limit = 5 } = req.query;
 
   const pageNum = parseInt(page);
   const limitNum = parseInt(limit);
 
   const totalCount = await Character.countDocuments();
 
-  const result = await Character.find({ ...req.query })
+  const result = await Character.find({})
     .limit(Number(limit))
     .skip((page - 1) * limit);
 
