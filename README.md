@@ -49,12 +49,12 @@ This is the backend for the Superhero Character Manager application. It provides
 
 ## API Endpoints
 
-    ### Characters
-        - **GET** /characters: Retrieve all characters.
-        - **GET** /characters/:id Retrieve a specific character by ID.
-        - **POST** /characters: Create a new character.
-        - **PUT** /characters/:id Update an existing character by ID.
-        - **DELETE** /characters/:id Delete a character by ID.
+ ### Characters
+   - **GET** /characters: Retrieve all characters.
+   - **GET** /characters/:id Retrieve a specific character by ID.
+   - **POST** /characters: Create a new character.
+   - **PUT** /characters/:id Update an existing character by ID.
+   - **DELETE** /characters/:id Delete a character by ID.
 
 ## Usage
 
